@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>METAL MOON: Back to Ruin — Heavy Metal Farm Sim</title>
+<link rel="icon" href="data:,">
+  <script type="module" crossorigin src="./assets/index-C7A-3-Il.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DpdpFPNX.css">
+</head>
+<body>
+<div id="app"></div>
+<div id="vignette"></div>
+<div id="flash"></div>
+<div id="letterbox-top"></div><div id="letterbox-box"></div>
+
+<div id="topbar">
+  <div class="plate left">
+    <div class="name">☠ BRUTAL FARMER</div>
+    <div class="hp-shell"><div class="hp-ghost" id="hpghost"></div><div class="hp" id="hp"></div></div>
+    <div class="burst" id="burst"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
+  </div>
+  <div id="roundbox">
+    <div id="daybadge">DAY 1</div>
+    <div id="clock">☾ 06:00</div>
+    <div id="weather">◆ BLOOD SUN</div>
+    <div id="rankline">RANK: ROADIE — 0G / 1000G</div>
+  </div>
+  <div class="plate right">
+    <div class="name">RIVAL: MOTHER NATURE ▼</div>
+    <div class="hp-shell"><div class="hp-ghost" id="rhpghost"></div><div class="hp" id="rhp" style="background:linear-gradient(180deg,#d9a7ff,#8b2bff,#4d0d8a)"></div></div>
+    <div class="burst" id="rivalburst"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+  </div>
+</div>
+
+<div id="cornerbtns">
+  <button id="btn-audio">🔊 METAL: ON [M]</button>
+  <button id="btn-help">❓ HELP [H]</button>
+  <button id="btn-save">💾 SAVE [P]</button>
+  <button id="btn-cam">🎥 CAM [C]</button>
+</div>
+
+<div id="announce"><div class="big" id="announce-big">HEAVEN OR HELL</div><div class="sub" id="announce-sub">DUEL 1 — LET'S ROCK</div></div>
+<div id="combo"><div class="n" id="combo-n">x2</div><div class="t">HARVEST COMBO</div></div>
+<div id="toast"></div>
+
+<div id="bottombar">
+  <div id="tools">
+    <div class="tool sel" data-tool="hoe"><div class="k">1</div><div class="ic">⛏️</div><div class="nm">HELL-HOE</div></div>
+    <div class="tool" data-tool="seed"><div class="k">2</div><div class="ic">🌱</div><div class="nm">SEED RIFF</div></div>
+    <div class="tool" data-tool="water"><div class="k">3</div><div class="ic">🩸</div><div class="nm">BLOOD-H2O</div></div>
+    <div class="tool" data-tool="scythe"><div class="k">4</div><div class="ic">🎸</div><div class="nm">REAPER-AXE</div></div>
+  </div>
+  <div id="tensionwrap">
+    <div id="tensionlabel">TENSION — DAY PROGRESS</div>
+    <div id="tension"><div id="tensionfill"></div><div id="tensionflame">🔥</div></div>
+  </div>
+  <div id="stats">
+    <div class="stat"><div class="v" id="st-gold">100</div><div class="l">GOLD ⛧</div></div>
+    <div class="stat"><div class="v" id="st-seed">6</div><div class="l">SEEDS</div></div>
+    <div class="stat"><div class="v" id="st-carry">0</div><div class="l">LOOT</div></div>
+    <div class="stat"><div class="v" id="st-stam">100</div><div class="l">STAMINA</div></div>
+  </div>
+</div>
+
+<div id="prompt"><b>E</b><span id="prompt-txt">TILL SOIL</span></div>
+<div id="log"></div>
+
+<div id="dialog"><div class="who" id="dlg-who">AXL ROSETHORN</div><div class="txt" id="dlg-txt"></div><div class="hint">[E] NEXT ・ QUEST: HARVEST 5 SKULL-TURNIPS FOR 150G</div></div>
+
+<div id="shop">
+  <h2>☠ ROADIE SUPPLY ☠</h2>
+  <p>Riff Merchant GUS — "No seeds, no solo, kid." [B] to close</p>
+  <div class="shopitem"><div><div class="t">🌱 Skull-Turnip Seeds ×1</div><div class="d">Screams when planted. Sells grown for 60G.</div></div><button id="buy-seed">20G BUY</button></div>
+  <div class="shopitem"><div><div class="t">🍺 Berserker Brew</div><div class="d">+45 stamina. Liquid encore.</div></div><button id="buy-brew">50G BUY</button></div>
+  <div class="shopitem"><div><div class="t">🌙 Moonlight Fertilizer</div><div class="d">Selected-tile crop instantly +1 growth.</div></div><button id="buy-fert">80G BUY</button></div>
+  <button id="shopclose">CLOSE [B]</button>
+</div>
+
+<div id="help">
+  <h2>HOW TO FARM LOUD</h2>
+  <table>
+    <tr><td>WASD / Arrows</td><td>Stomp around the stage</td></tr>
+    <tr><td>1 – 4</td><td>Hell-Hoe / Seed Riff / Blood-H2O / Reaper-Axe</td></tr>
+    <tr><td>E or SPACE</td><td>Use tool / Talk / Ship / Sleep / Pet chicken (context)</td></tr>
+    <tr><td>B</td><td>Roadie Supply shop</td></tr>
+    <tr><td>C</td><td>Camera: follow / top / pit-cam</td></tr>
+    <tr><td>M</td><td>Procedural metal riff on/off</td></tr>
+    <tr><td>P</td><td>Save to localStorage (auto-saves on sleep)</td></tr>
+    <tr><td>H</td><td>This scroll</td></tr>
+  </table>
+  <p style="margin-top:10px;font-size:14px;line-height:1.5">Loop: <b style="color:#ffc93c">TILL (1) → PLANT (2) → WATER (3) → SLEEP in coffin → REAP (4) → SHIP at skull-anvil (E)</b>. Watered crops grow overnight. Blood Rain waters free. Collect Hellcluck eggs. Earn <b style="color:#ffc93c">1000G</b> to rank HEADLINER. Exhaustion forces sleep.</p>
+  <button id="helpclose">BACK TO THE PIT</button>
+</div>
+
+<div id="title">
+  <div class="over">⛧⛧⛧ HARVEST MOON TRIBUTE ⛧⛧⛧</div>
+  <h1>METAL MOON<br/><span>BACK TO RUIN</span></h1>
+  <div class="tag">— HEAVEN OR HELL · LET'S FARM —</div>
+  <div class="story">Grandpa's farm died screaming. The soil thirsts for blood, the turnips grow skulls, and Mother Nature wants a duel. Till the cursed earth, raise a screaming harvest, and headline the Pit before your stamina flatlines.<br/><b style="color:#ffc93c">WASD move · E act · 1-4 tools · B shop · Sleep in the coffin</b></div>
+  <button id="rockbtn">🤘 LET'S ROCK 🤘</button>
+  <div class="keys">Desktop + WebGL recommended · Sound = procedural metal (no audio files) · Progress saves locally</div>
+</div>
+
+<div id="fps"></div>
+</body>
+</html>
